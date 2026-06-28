@@ -92,6 +92,7 @@ function Index() {
       <ProductsCatalog />
       <Contact />
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }
