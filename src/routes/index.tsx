@@ -418,82 +418,57 @@ function ProductModal({ product, onClose }: { product: Product; onClose: () => v
 
 
 function Contact() {
-  const [sent, setSent] = useState(false);
+  const contacts = [
+    { icon: Phone, label: "Телефон", value: "+7 (727) 347-55-55", href: "tel:+77273475555" },
+    { icon: Mail, label: "Email", value: "info@an-d.asia", href: "mailto:info@an-d.asia" },
+    { icon: MapPin, label: "Адрес", value: "г. Алматы, ул. Рымжанова, 35", href: "https://maps.google.com/?q=Алматы+Рымжанова+35" },
+  ];
   return (
-    <section id="contact" className="py-24 lg:py-32 border-t border-border/40">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-16">
-        <div>
+    <section id="contact" className="py-24 lg:py-32 border-t border-border/40 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gold/[0.03] to-transparent pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 relative">
+        <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-4">Контакты</div>
-          <h2 className="font-display text-4xl md:text-5xl leading-tight">Оставьте заявку — <em className="text-gold-gradient not-italic">рассчитаем цену</em></h2>
-          <p className="mt-6 text-muted-foreground max-w-md">Выделенный менеджер свяжется с вами в течение рабочего дня и подготовит коммерческое предложение под ваш проект.</p>
-          <div className="mt-10 space-y-5">
-            <a href="tel:+77273475555" className="flex items-center gap-4 group">
-              <span className="w-11 h-11 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center group-hover:bg-gold/20 transition">
-                <Phone className="w-4 h-4 text-gold" />
-              </span>
-              <span>
-                <div className="text-xs text-muted-foreground">Телефон</div>
-                <div className="text-lg">+7 (727) 347-55-55</div>
-              </span>
-            </a>
-            <a href="mailto:info@an-d.asia" className="flex items-center gap-4 group">
-              <span className="w-11 h-11 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center group-hover:bg-gold/20 transition">
-                <Mail className="w-4 h-4 text-gold" />
-              </span>
-              <span>
-                <div className="text-xs text-muted-foreground">Email</div>
-                <div className="text-lg">info@an-d.asia</div>
-              </span>
-            </a>
-            <div className="flex items-center gap-4">
-              <span className="w-11 h-11 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center">
-                <MapPin className="w-4 h-4 text-gold" />
-              </span>
-              <span>
-                <div className="text-xs text-muted-foreground">Адрес</div>
-                <div className="text-lg">г. Алматы, ул. Рымжанова, 35</div>
-              </span>
-            </div>
-          </div>
+          <h2 className="font-display text-4xl md:text-6xl leading-tight">
+            Свяжитесь с <em className="text-gold-gradient not-italic">выделенным менеджером</em>
+          </h2>
+          <p className="mt-6 text-muted-foreground text-lg">
+            Подготовим коммерческое предложение под ваш проект в течение рабочего дня.
+          </p>
         </div>
-        <form
-          onSubmit={(e) => { e.preventDefault(); setSent(true); }}
-          className="bg-card/30 border border-border/50 rounded-2xl p-8 lg:p-10 space-y-5"
-        >
-          {sent ? (
-            <div className="py-16 text-center">
-              <div className="w-16 h-16 mx-auto rounded-full bg-gold/15 border border-gold/40 flex items-center justify-center mb-6">
-                <Check className="w-7 h-7 text-gold" />
+
+        <div className="grid sm:grid-cols-3 gap-4 lg:gap-6 mb-12">
+          {contacts.map((c) => (
+            <a
+              key={c.label}
+              href={c.href}
+              target={c.label === "Адрес" ? "_blank" : undefined}
+              rel={c.label === "Адрес" ? "noreferrer" : undefined}
+              className="group relative p-8 lg:p-10 rounded-2xl bg-card/40 border border-border/50 hover:border-gold/60 hover:bg-card/70 transition-all hover:-translate-y-1"
+            >
+              <div className="w-14 h-14 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center mb-6 group-hover:bg-gold/20 transition">
+                <c.icon className="w-5 h-5 text-gold" />
               </div>
-              <h3 className="font-display text-3xl mb-3">Заявка отправлена</h3>
-              <p className="text-muted-foreground">Мы свяжемся с вами в ближайшее время.</p>
-            </div>
-          ) : (
-            <>
-              <Field label="Имя" name="name" required />
-              <Field label="Телефон" name="phone" type="tel" required />
-              <Field label="Комментарий" name="comment" textarea />
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                Нажимая «Отправить», вы соглашаетесь на обработку персональных данных.
-              </p>
-              <button type="submit" className="btn-gold btn-gold-hover w-full justify-center">
-                Отправить заявку <ArrowRight className="w-4 h-4" />
-              </button>
-            </>
-          )}
-        </form>
+              <div className="text-xs tracking-widest uppercase text-gold-soft mb-2">{c.label}</div>
+              <div className="font-display text-2xl lg:text-3xl leading-tight">{c.value}</div>
+            </a>
+          ))}
+        </div>
+
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="tel:+77273475555" className="btn-gold btn-gold-hover">
+            Позвонить сейчас <Phone className="w-4 h-4" />
+          </a>
+          <a href="mailto:info@an-d.asia" className="btn-ghost-gold btn-ghost-gold-hover">
+            Написать на email <Mail className="w-4 h-4" />
+          </a>
+        </div>
+
+        <p className="text-center text-xs text-muted-foreground mt-12">
+          Пн–Пт 09:00–18:00 · Выделенный менеджер для каждого партнёра
+        </p>
       </div>
     </section>
-  );
-}
-
-function Field({ label, name, type = "text", textarea, required }: { label: string; name: string; type?: string; textarea?: boolean; required?: boolean }) {
-  const cls = "w-full bg-background/60 border border-border/60 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-gold/60 transition";
-  return (
-    <label className="block">
-      <span className="block text-xs text-muted-foreground mb-2 tracking-wide">{label}{required && <span className="text-gold"> *</span>}</span>
-      {textarea ? <textarea name={name} rows={4} className={cls} /> : <input name={name} type={type} required={required} className={cls} />}
-    </label>
   );
 }
 
