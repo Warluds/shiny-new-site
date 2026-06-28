@@ -343,21 +343,22 @@ function ProductsCatalog() {
           ))}
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
           {filtered.map((p) => (
             <button
               key={p.name}
               onClick={() => setActive(p)}
-              className="group text-left bg-card/40 border border-border/40 rounded-lg overflow-hidden hover:border-gold/60 hover:-translate-y-0.5 transition-all"
+              className="group text-left bg-white border border-border/40 rounded-lg overflow-hidden hover:border-gold hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold/10 transition-all"
             >
-              <div className="aspect-square bg-[#f5f1ea] flex items-center justify-center p-3 overflow-hidden">
-                <img src={p.img} alt={p.name} loading="lazy" className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500 mix-blend-multiply" />
+              <div className="aspect-square bg-white flex items-center justify-center p-1.5 overflow-hidden">
+                <img src={p.img} alt={p.name} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
               </div>
-              <div className="p-3 border-t border-border/30">
+              <div className="p-2.5 bg-card border-t border-border/30">
                 {p.tag && <div className="text-[9px] tracking-widest uppercase text-gold-soft/80 mb-1">{p.tag}</div>}
                 <div className="text-xs leading-snug line-clamp-2 group-hover:text-gold-soft transition">{p.name}</div>
               </div>
             </button>
+          ))}
           ))}
           {filtered.length === 0 && (
             <div className="col-span-full p-10 text-center text-muted-foreground text-sm">Ничего не найдено.</div>
