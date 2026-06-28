@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { ArrowRight, Phone, Mail, MapPin, Check, Sparkles, Shield, Truck, UserCheck, ChevronDown } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowRight, Phone, Mail, MapPin, Check, Sparkles, Shield, Truck, UserCheck, ChevronDown, X } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
 import brandImg from "@/assets/brand.jpg";
 import catInterior from "@/assets/cat-interior.jpg";
@@ -42,36 +42,42 @@ const advantages = [
   { icon: UserCheck, title: "Выделенный менеджер", desc: "Персональное сопровождение от расчёта до отгрузки и пост-сервиса." },
 ];
 
-const products = [
-  "3D White BW", "Легко обновить Мебель и Дерево BC", "Легко обновить Мебель и Дерево BW",
-  "Легко обновить Обои BC", "Легко обновить Обои BW", "Легко обновить Окна и Двери BC",
-  "Легко обновить Окна и Двери BW", "Легко обновить Полы и Лестницы BC", "Легко обновить Полы и Лестницы BW",
-  "Ослепительно Белая", "Better Living Antibacterial BC", "Better Living Antibacterial BW",
-  "Bindo Exterior BC", "Bindo Exterior BW", "Bindo Filler",
-  "Classic Colour Для мебели и дерева BC", "Classic Colour Для мебели и дерева BW",
-  "Classic Colour Для обоев BC", "Classic Colour Для обоев BW",
-  "Classic Colour Для пола BC", "Classic Colour Для пола BW",
-  "Classic Colour Для стен и потолков BC", "Classic Colour Для стен и потолков BW",
-  "Classic Colour Фасадная BC", "Classic Colour Фасадная BW", "Classic Primer",
-  "Domus Aqua BC", "Domus Aqua BW", "Family Zone BW", "Maxi",
-  "Professional Acryll Matt BC", "Professional Acryll Matt BW",
-  "Professional Bindo 2 BW", "Professional Bindo 3 BC", "Professional Bindo 3 BW",
-  "Professional Bindo 7 BC", "Professional Bindo 7 BW",
-  "Professional Bindo 20 BC", "Professional Bindo 20 BW",
-  "Professional Bindo 40 BC", "Professional Bindo 40 BW",
-  "Professional Bindo Негорючая", "Professional Bindo Base",
-  "Professional Bindo Expert BC", "Professional Bindo Expert BW", "Professional Bindo Primer",
-  "Professional Diamond Фасадная Гладкая BC", "Professional Diamond Фасадная Гладкая BW",
-  "Professional Diamond BC", "Professional Diamond BW",
-  "Professional Diamond Extra Matt BC", "Professional Diamond Extra Matt BW",
-  "Professional Diamond Max Protect BC", "Professional Diamond Max Protect BW",
-  "Professional Latex 7 BC", "Professional Latex 7 BW",
-  "Professional Super Strong BC", "Professional Super Strong BW",
-  "Professional Vinyl Extra Matt BC", "Professional Vinyl Extra Matt BW",
-  "Ultra Resist Halls & Offices BC", "Ultra Resist Halls & Offices BW",
-  "Ultra Resist Kitchen & Bathroom matt BC", "Ultra Resist Kitchen & Bathroom matt BW",
-  "Ultra Resist Kitchen & Bathroom semi-matt BC", "Ultra Resist Kitchen & Bathroom semi-matt BW",
-  "Weathershield Extraflex BC", "Weathershield Extraflex BW",
+type Product = { name: string; img: string; features: string[]; tag?: string };
+
+const products: Product[] = [
+  { name: "Luxium Professional Diamond Matt", tag: "Интерьерная", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/fa1/fa11516c78789da245a0939099a9f2ff/65011162_jpg_1x.webp", features: ["В 10 раз прочнее, чем обычные интерьерные краски", "Гарантия срока службы до 25 лет", "Экологичная и безопасная"] },
+  { name: "Luxium Professional Diamond Extra Matt", tag: "Интерьерная", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/129/1295384960d34129ba8ef60e0fd90682/84898608_jpg_1x.webp", features: ["В 10 раз прочнее, чем обычные интерьерные краски", "Гарантия срока службы до 25 лет", "Экологичная и безопасная"] },
+  { name: "Luxium Professional Vinyl Extra Matt", tag: "Интерьерная", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/f3e/f3eeca00b2473bcdedc28883f97aa0b2/93478895_jpg_1x.webp", features: ["Особо гладкое покрытие", "Укрывистая и экологичная", "Маскирует небольшие дефекты поверхности"] },
+  { name: "Luxium Ultra Resist Кухня и ванная полуматовая", tag: "Кухня и ванная", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/67e/67ed56b494ae296cbb207f728ad2551e/25193767_jpg_1x.webp", features: ["Улучшенные грязе- и водоотталкивающие свойства", "Создаёт «эффект лотоса»", "Устойчива к многократному мытью"] },
+  { name: "Luxium Ultra Resist Гостиные и Офисы", tag: "Гостиные и офисы", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/7cc/7cc202f234d68d7dd82220b9a165010b/69229481_jpg_1x.webp", features: ["Улучшенные грязе- и водоотталкивающие свойства", "Содержит воск", "Не содержит летучих органических веществ"] },
+  { name: "Luxium Ultra Resist Кухня и ванная матовая", tag: "Кухня и ванная", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/b69/b6991ac1c4f619ee3178bbaffcae31cd/52289516_jpg_1x.webp", features: ["Защита от пятен жира", "Содержит воск", "Устойчива к образованию плесени"] },
+  { name: "Luxium Легко Обновить — Окна и двери", tag: "Эмаль", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/4e8/4e807dd02965a2e897ec719925488a9a/76817616_jpg_1x.webp", features: ["На водной основе", "Высокая устойчивость цвета", "Не требуется грунтование"] },
+  { name: "Luxium Легко Обновить — Мебель и дерево", tag: "Эмаль", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/8ee/8eedcd682f8a1f2d9010df932230f8f6/17973574_jpg_1x.webp", features: ["Устойчива к образованию пятен", "Устойчива к мытью", "На водной основе"] },
+  { name: "Luxium Легко Обновить — Полы и лестницы", tag: "Эмаль", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/d70/d70d17a5dd9e90245da94c05462a29b7/58706875_jpg_1x.webp", features: ["На водной основе", "Устойчива к мытью", "Не требуется грунтование"] },
+  { name: "Luxium Bindo 2", tag: "Потолки", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/943/94313c9fedfaf033b450971858528704/52755942_jpg_1x.webp", features: ["Высокая степень белизны", "Скрывает дефекты поверхности", "Тиксотропная"] },
+  { name: "Luxium Bindo 3", tag: "Интерьерная", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/290/290d38e941c3caa4d4f12b6cfe0569e6/33365807_jpg_1x.webp", features: ["Минимальное время сушки между слоями (1 час)", "Без разбрызгиваний и потёков", "Антибликовая"] },
+  { name: "Luxium Bindo 7", tag: "Интерьерная", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/34c/34cffb1fdcaac7eed0dd5f35ffa9da4e/43239895_jpg_1x.webp", features: ["Устойчива к мытью", "Минимальное время сушки между слоями (1 час)", "Срок службы покрытия до 15 лет"] },
+  { name: "Luxium Bindo 20", tag: "Влажные помещения", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/b12/b12e99d42d7c596abc89b96677aaac4a/72178213_jpg_1x.webp", features: ["Минимальное время сушки между слоями (1 час)", "Уничтожает споры грибка и плесени", "Устойчива к конденсату"] },
+  { name: "Luxium Bindo 40", tag: "Влажные помещения", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/694/694e2ed263b8b032928a5e07a280ec6a/40247138_jpg_1x.webp", features: ["Устойчива к образованию плесени", "Устойчива к конденсату", "Минимальное время сушки между слоями (1 час)"] },
+  { name: "Luxium Bindo Expert", tag: "Интерьерная", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/fa5/fa5b02c8d98f69ee2bb60d238e144b58/31515441_jpg_1x.webp", features: ["Срок службы покрытия до 15 лет", "Минимальное время сушки между слоями (1 час)", "Легко наносится и шлифуется"] },
+  { name: "Luxium Ослепительно Белая Матовая", tag: "Интерьерная", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/48d/48d2a732763825b0bec76a0db85fa5c5/76125466_jpg_1x.webp", features: ["Содержит частицы мрамора, визуально увеличивает пространство", "Гладкое и белоснежное покрытие", "Выдерживает мытьё с мылом и гелем"] },
+  { name: "Luxium Обои", tag: "Обои", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/a6a/a6a7738b2da987c8acea6346310a4d14/23498814_jpg_1x.webp", features: ["Для обоев любого типа", "Почти без запаха", "Быстрое высыхание"] },
+  { name: "Luxium Classic Colour для обоев", tag: "Обои", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/a3e/a3e62a6e32338d6c5af4f84301235359/96923087_jpg_1x.webp", features: ["Надолго сохраняет цвет", "Подчёркивает рельеф обоев", "Обладает отличной укрывистостью"] },
+  { name: "Luxium Acryl Matt", tag: "Интерьерная", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/67c/67c062e7cd73493c1c19894a242e2ce9/36908488_jpg_1x.webp", features: ["Эластичное покрытие", "Скрывает дефекты поверхности", "Высокая устойчивость цвета"] },
+  { name: "Luxium Family Zone", tag: "Интерьерная", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/181/18135f6b922b24b3480b4db3291dd5ad/10547253_jpg_1x.webp", features: ["Экологичная", "Влажная уборка", "Скрывает дефекты поверхности"] },
+  { name: "Luxium Super Strong", tag: "Интерьерная", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/f71/f710fac6b9517b4f8f2004fbda50fe25/83302707_jpg_1x.webp", features: ["Экономный расход", "Устойчива к многократному мытью", "Минимальное время сушки между слоями (1 час)"] },
+  { name: "Luxium 3D White", tag: "Интерьерная", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/304/304528a97fbaf54e4b6b1c874753f7e8/86982730_jpg_1x.webp", features: ["Оптический отбеливатель и частицы мрамора — непревзойдённая белизна интерьера", "Визуально расширяет пространство (3D-эффект)", "Колеруется в пастельные оттенки"] },
+  { name: "Luxium Classic Colour — Краска для стен", tag: "Интерьерная", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/f4d/f4d58847b0daa364832b3b2a9ed3d2f2/39590990_jpg_1x.webp", features: ["Надолго сохраняет цвет", "Выдерживает мытьё с мылом и гелем", "Укрывает в 2 слоя"] },
+  { name: "Luxium Bindo Filler", tag: "Подготовка", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/a6a/a6a918b545e91f16e2498ceafc64b39c/53512040_jpg_1x.webp", features: ["Легко наносится и шлифуется", "Экологичная", "Высокая степень белизны"] },
+  { name: "Luxium Bindo Primer", tag: "Грунтовка", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/5d4/5d41dd6a37b4cf8362aa44fd457ca838/55229002_jpg_1x.webp", features: ["Улучшает адгезию", "Обеспечивает равномерность нанесения краски", "Сокращает расход финишного материала"] },
+  { name: "Luxium Maxi", tag: "Подготовка", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/76f/76f6c8dc49558a904b949a8d4b442104/52032558_jpg_1x.webp", features: ["Почти без запаха", "Надёжное и долговечное сцепление", "Легко наносится и шлифуется"] },
+  { name: "Luxium Classic Colour Для пола", tag: "Эмаль", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/9f2/9f2173795e7d4ba7d88cb9496dd4b5a4/29329560_jpg_1x.webp", features: ["Быстрое высыхание", "Выдерживает мытьё с мылом и гелем"] },
+  { name: "Luxium Better Living", tag: "Антибактериальная", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/755/7559893462e4dd2c0afe116196786855/81956355_jpg_1x.webp", features: ["Содержит ионы серебра, препятствующие размножению бактерий", "Устойчива к многократному мытью"] },
+  { name: "Luxium Classic Colour Для мебели и дерева", tag: "Эмаль", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/538/5389d6c11c0dc8d488fcf88dcf731fec/99042964_jpg_1x.webp", features: ["Выдерживает мытьё с мылом и гелем", "Быстрое высыхание"] },
+  { name: "Luxium Weathershield Extraflex", tag: "Фасадная", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/612/6129d2ca9cd22c66524d675c23f4b1f8/55357585_jpg_1x.webp", features: ["Срок службы покрытия до 15 лет", "Эластичное покрытие", "Устойчива к УФ-излучению"] },
+  { name: "Luxium Max Protect", tag: "Интерьерная", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/a8e/a8e2d51e507192c24348b81b9900a2ee/63122123_jpg_1x.webp", features: ["В 10 раз прочнее, чем обычные интерьерные краски", "Защищает от чёрных следов резины и пластика", "Для помещений с максимальной нагрузкой"] },
+  { name: "Luxium Фасадная Гладкая", tag: "Фасадная", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/2e8/2e8a85ee4d71e62eb4d176235c978ece/94995033_jpg_1x.webp", features: ["Срок службы покрытия до 25 лет", "Экономный расход", "Сверхадгезивная"] },
+  { name: "Luxium Classic Colour Фасадная", tag: "Фасадная", img: "https://cdn-ru.bitrix24.kz/b7517553/landing/0aa/0aae0b796e4fdd0f8393e6e61a9b7bcf/75606075_jpg_1x.webp", features: ["Срок службы покрытия до 12 лет", "Устойчива к образованию плесени", "Устойчива к воздействию атмосферных явлений"] },
 ];
 
 function Index() {
