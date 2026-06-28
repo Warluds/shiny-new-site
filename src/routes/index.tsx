@@ -390,8 +390,8 @@ function ProductModal({ product, onClose }: { product: Product; onClose: () => v
           <X className="w-4 h-4" />
         </button>
         <div className="grid md:grid-cols-2 gap-0">
-          <div className="bg-[#f5f1ea] flex items-center justify-center p-8 min-h-[280px]">
-            <img src={product.img} alt={product.name} className="max-h-[360px] max-w-full object-contain mix-blend-multiply" />
+          <div className="bg-white flex items-center justify-center p-6 min-h-[280px]">
+            <img src={product.img} alt={product.name} className="max-h-[360px] max-w-full object-contain" />
           </div>
           <div className="p-7 lg:p-9">
             {product.tag && <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-3">{product.tag}</div>}
