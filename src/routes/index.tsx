@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowRight, Phone, Mail, MapPin, Check, Sparkles, Shield, Truck, UserCheck, ChevronDown, X } from "lucide-react";
+import { ArrowRight, ArrowUp, Phone, Mail, MapPin, Check, Sparkles, Shield, Truck, UserCheck, ChevronDown, X } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
 import brandImg from "@/assets/brand.jpg";
 import catInterior from "@/assets/cat-interior.jpg";
