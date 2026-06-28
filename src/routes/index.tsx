@@ -292,7 +292,18 @@ function Advantages() {
 
 function ProductsCatalog() {
   const [query, setQuery] = useState("");
-  const filtered = products.filter(p => p.toLowerCase().includes(query.toLowerCase()));
+  const [active, setActive] = useState<Product | null>(null);
+  const filtered = products.filter(p => p.name.toLowerCase().includes(query.toLowerCase()));
+
+  useEffect(() => {
+    if (!active) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setActive(null);
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.removeEventListener("keydown", onKey); document.body.style.overflow = prev; };
+  }, [active]);
+
   return (
     <section id="products" className="py-24 border-t border-border/40">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
@@ -300,7 +311,7 @@ function ProductsCatalog() {
           <div>
             <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-4">Каталог</div>
             <h2 className="font-display text-4xl md:text-5xl">Полная линейка <em className="text-gold-gradient not-italic">Luxium</em></h2>
-            <p className="mt-4 text-muted-foreground max-w-xl">{products.length} наименований с полным пакетом сертификации.</p>
+            <p className="mt-4 text-muted-foreground max-w-xl">{products.length} продуктов с полным пакетом сертификации. Нажмите на карточку, чтобы открыть описание.</p>
           </div>
           <input
             value={query}
@@ -309,24 +320,80 @@ function ProductsCatalog() {
             className="bg-card/40 border border-border/50 rounded-full px-5 py-3 text-sm w-full sm:w-80 focus:outline-none focus:border-gold/60 transition"
           />
         </div>
-        <div className="rounded-2xl border border-border/50 overflow-hidden bg-card/20">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 divide-y sm:divide-y-0 divide-border/40">
-            {filtered.map((p) => (
-              <div key={p} className="flex items-center gap-3 px-5 py-4 border-b border-border/30 hover:bg-gold/5 transition group">
-                <div className="w-1.5 h-1.5 rounded-full bg-gold/60 group-hover:bg-gold transition" />
-                <span className="text-sm">{p}</span>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+          {filtered.map((p) => (
+            <button
+              key={p.name}
+              onClick={() => setActive(p)}
+              className="group text-left bg-card/30 border border-border/50 rounded-xl overflow-hidden hover:border-gold/60 hover:-translate-y-1 transition-all"
+            >
+              <div className="aspect-square bg-gradient-to-br from-background to-card flex items-center justify-center p-6 overflow-hidden">
+                <img src={p.img} alt={p.name} loading="lazy" className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500" />
               </div>
-            ))}
-            {filtered.length === 0 && (
-              <div className="col-span-full p-10 text-center text-muted-foreground text-sm">Ничего не найдено.</div>
-            )}
-          </div>
+              <div className="p-4 border-t border-border/40">
+                {p.tag && <div className="text-[10px] tracking-widest uppercase text-gold-soft mb-1.5">{p.tag}</div>}
+                <div className="text-sm leading-snug group-hover:text-gold-soft transition">{p.name}</div>
+              </div>
+            </button>
+          ))}
+          {filtered.length === 0 && (
+            <div className="col-span-full p-10 text-center text-muted-foreground text-sm">Ничего не найдено.</div>
+          )}
         </div>
-        <p className="mt-6 text-xs text-muted-foreground">СГР, MSDS, СС, ПИ предоставляются по запросу для каждого артикула.</p>
+
+        <p className="mt-8 text-xs text-muted-foreground">СГР, MSDS, СС, ПИ предоставляются по запросу для каждого артикула.</p>
       </div>
+
+      {active && <ProductModal product={active} onClose={() => setActive(null)} />}
     </section>
   );
 }
+
+function ProductModal({ product, onClose }: { product: Product; onClose: () => void }) {
+  return (
+    <div
+      onClick={onClose}
+      className="fixed inset-0 z-[100] bg-ink/85 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200"
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="relative w-full max-w-4xl max-h-[92vh] overflow-auto bg-card border border-gold/30 rounded-2xl shadow-2xl"
+      >
+        <button
+          onClick={onClose}
+          aria-label="Закрыть"
+          className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-background/80 border border-border/60 flex items-center justify-center hover:bg-gold hover:text-ink transition"
+        >
+          <X className="w-4 h-4" />
+        </button>
+        <div className="grid md:grid-cols-2 gap-0">
+          <div className="bg-gradient-to-br from-background to-card flex items-center justify-center p-10 min-h-[320px]">
+            <img src={product.img} alt={product.name} className="max-h-[420px] max-w-full object-contain drop-shadow-2xl" />
+          </div>
+          <div className="p-8 lg:p-10">
+            {product.tag && <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-4">{product.tag}</div>}
+            <h3 className="font-display text-3xl lg:text-4xl leading-tight mb-2">{product.name}</h3>
+            <div className="hairline w-20 my-6" />
+            <p className="text-sm text-muted-foreground mb-6">Профессиональное покрытие линейки Luxium. Сертифицировано для применения на территории ЕАЭС.</p>
+            <ul className="space-y-3.5 mb-8">
+              {product.features.map((f) => (
+                <li key={f} className="flex gap-3 text-sm leading-relaxed">
+                  <Check className="w-4 h-4 text-gold shrink-0 mt-0.5" />
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
+            <a href="#contact" onClick={onClose} className="btn-gold btn-gold-hover w-full justify-center">
+              Запросить цену <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 
 function Contact() {
   const [sent, setSent] = useState(false);
