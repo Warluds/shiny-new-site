@@ -1,7 +1,5 @@
 # Luxium
 
-Сайт компании Luxium на TanStack Start + Vite + Tailwind v4.
-
 ## Сборка
 
 ```bash
@@ -11,26 +9,24 @@ npm install --legacy-peer-deps
 npm run build
 ```
 
+После сборки появится папка **`static/`** — это готовый статический сайт
+(`index.html` + `assets/`). Загрузите её содержимое на любой обычный хостинг
+(FTP, Nginx, Apache, GitHub Pages, Netlify drop и т.д.).
+
 ## Разработка
 
 ```bash
 npm run dev
 ```
 
-Локально откроется dev-сервер на http://localhost:8080.
+Откроется dev-сервер на http://localhost:8080.
 
-## Превью продакшен-сборки
+## Примечания
 
-```bash
-npm run preview
-```
-
-## Скрипты
-
-- `npm run dev` — dev-сервер с HMR
-- `npm run build` — продакшен-сборка (Cloudflare Worker preset)
-- `npm run preview` — локальный просмотр собранной версии
-- `npm run lint` — ESLint
-- `npm run format` — Prettier
-
-> Флаг `--legacy-peer-deps` нужен из-за React 19 и пакетов, у которых peer-зависимости ещё указывают React 18.
+- Флаг `--legacy-peer-deps` нужен из-за React 19 и peer-зависимостей,
+  которые ещё указывают React 18.
+- `npm run build` сначала собирает приложение (Vite + TanStack Start),
+  затем `scripts/prerender.mjs` рендерит главную страницу в статический
+  HTML и копирует результат в `static/`.
+- Чтобы добавить другие страницы в пререндер — допишите пути в массив
+  `ROUTES` в `scripts/prerender.mjs`.
