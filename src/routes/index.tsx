@@ -359,7 +359,6 @@ function ProductsCatalog() {
               </div>
             </button>
           ))}
-          ))}
           {filtered.length === 0 && (
             <div className="col-span-full p-10 text-center text-muted-foreground text-sm">Ничего не найдено.</div>
           )}
