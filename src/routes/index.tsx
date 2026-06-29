@@ -104,7 +104,7 @@ function Header() {
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-background/60 border-b border-border/40">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2" aria-label="Luxium">
-          <img src={luxiumLogo.url} alt="Luxium — больше красок" width={120} height={48} className="h-10 w-auto" />
+          <img src={luxiumLogo.url} alt="Luxium — больше красок" width={130} height={52} className="h-[52px] w-auto" />
         </a>
         <nav className="hidden md:flex items-center gap-9 text-sm text-muted-foreground">
           <a href="#brand" className="hover:text-gold-soft transition">О бренде</a>
@@ -506,7 +506,7 @@ function Footer() {
     <footer className="border-t border-border/40 py-12">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex flex-wrap items-center justify-between gap-6">
         <div className="flex items-center gap-4">
-          <img src={luxiumLogo.url} alt="Luxium" width={110} height={44} className="h-10 w-auto" />
+          <img src={luxiumLogo.url} alt="Luxium" width={130} height={52} className="h-[52px] w-auto" />
           <p className="text-xs text-muted-foreground max-w-[18ch]">Профессиональные покрытия для профессионалов.</p>
         </div>
         <div className="text-xs text-muted-foreground">© {new Date().getFullYear()} Luxium. Все права защищены.</div>
