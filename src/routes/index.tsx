@@ -7,6 +7,7 @@ import catInterior from "@/assets/cat-interior.jpg";
 import catFacade from "@/assets/cat-facade.jpg";
 import catWood from "@/assets/cat-wood.jpg";
 import catPrep from "@/assets/cat-prep.jpg";
+import luxiumLogo from "@/assets/luxium-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -102,8 +103,8 @@ function Header() {
   return (
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-background/60 border-b border-border/40">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2">
-          <span className="font-display text-2xl tracking-tight text-gold-gradient">Luxium</span>
+        <a href="#top" className="flex items-center gap-2" aria-label="Luxium">
+          <img src={luxiumLogo.url} alt="Luxium — больше красок" width={120} height={48} className="h-10 w-auto" />
         </a>
         <nav className="hidden md:flex items-center gap-9 text-sm text-muted-foreground">
           <a href="#brand" className="hover:text-gold-soft transition">О бренде</a>
@@ -504,9 +505,9 @@ function Footer() {
   return (
     <footer className="border-t border-border/40 py-12">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex flex-wrap items-center justify-between gap-6">
-        <div>
-          <div className="font-display text-2xl text-gold-gradient">Luxium</div>
-          <p className="text-xs text-muted-foreground mt-2">Профессиональные покрытия для профессионалов.</p>
+        <div className="flex items-center gap-4">
+          <img src={luxiumLogo.url} alt="Luxium" width={110} height={44} className="h-10 w-auto" />
+          <p className="text-xs text-muted-foreground max-w-[18ch]">Профессиональные покрытия для профессионалов.</p>
         </div>
         <div className="text-xs text-muted-foreground">© {new Date().getFullYear()} Luxium. Все права защищены.</div>
       </div>
