@@ -102,9 +102,9 @@ function Header() {
   const [open, setOpen] = useState(false);
   return (
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-background/60 border-b border-border/40">
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 h-20 sm:h-24 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 h-32 sm:h-40 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2" aria-label="Luxium">
-          <img src={luxiumLogo.url} alt="Luxium — больше красок" width={220} height={88} className="h-12 sm:h-[68px] w-auto" />
+          <img src={luxiumLogo.url} alt="Luxium — больше красок" width={440} height={176} className="h-24 sm:h-[136px] w-auto" />
         </a>
         <nav className="hidden md:flex items-center gap-9 text-sm text-muted-foreground">
           <a href="#brand" className="hover:text-gold-soft transition">О бренде</a>
@@ -133,7 +133,7 @@ function Header() {
 
 function Hero() {
   return (
-    <section id="top" className="relative pt-32 pb-14 lg:pt-36 lg:pb-20 overflow-hidden">
+    <section id="top" className="relative pt-44 pb-14 lg:pt-52 lg:pb-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-10 items-center">
         <div className="lg:col-span-6 relative z-10">
           <div className="inline-flex items-center gap-2 text-xs tracking-[0.25em] uppercase text-gold-soft mb-8">
@@ -506,7 +506,7 @@ function Footer() {
     <footer className="border-t border-border/40 py-12">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex flex-wrap items-center justify-between gap-6">
         <div className="flex items-center gap-4">
-          <img src={luxiumLogo.url} alt="Luxium" width={220} height={88} className="h-12 sm:h-[68px] w-auto" />
+          <img src={luxiumLogo.url} alt="Luxium" width={440} height={176} className="h-24 sm:h-[136px] w-auto" />
           <p className="text-sm text-muted-foreground max-w-[20ch]">Профессиональные покрытия для профессионалов.</p>
         </div>
         <div className="text-sm text-muted-foreground">© {new Date().getFullYear()} Luxium. Все права защищены.</div>
