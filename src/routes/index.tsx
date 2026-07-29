@@ -102,9 +102,9 @@ function Header() {
   const [open, setOpen] = useState(false);
   return (
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-background/60 border-b border-border/40">
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 h-20 sm:h-24 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 h-32 sm:h-40 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2" aria-label="Luxium">
-          <img src={luxiumLogo.url} alt="Luxium — больше красок" width={220} height={88} className="h-12 sm:h-[68px] w-auto" />
+          <img src={luxiumLogo.url} alt="Luxium — больше красок" width={440} height={176} className="h-24 sm:h-[136px] w-auto" />
         </a>
         <nav className="hidden md:flex items-center gap-9 text-sm text-muted-foreground">
           <a href="#brand" className="hover:text-gold-soft transition">О бренде</a>
