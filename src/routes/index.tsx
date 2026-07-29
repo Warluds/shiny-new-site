@@ -506,7 +506,7 @@ function Footer() {
     <footer className="border-t border-border/40 py-12">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex flex-wrap items-center justify-between gap-6">
         <div className="flex items-center gap-4">
-          <img src={luxiumLogo.url} alt="Luxium" width={220} height={88} className="h-12 sm:h-[68px] w-auto" />
+          <img src={luxiumLogo.url} alt="Luxium" width={440} height={176} className="h-24 sm:h-[136px] w-auto" />
           <p className="text-sm text-muted-foreground max-w-[20ch]">Профессиональные покрытия для профессионалов.</p>
         </div>
         <div className="text-sm text-muted-foreground">© {new Date().getFullYear()} Luxium. Все права защищены.</div>
