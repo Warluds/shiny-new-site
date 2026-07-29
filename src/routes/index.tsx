@@ -439,7 +439,7 @@ function Contact() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-3 gap-4 lg:gap-6 mb-6">
+        <div className="grid sm:grid-cols-3 gap-4 lg:gap-6 mb-5">
           {contacts.map((c) => (
             <a
               key={c.label}
