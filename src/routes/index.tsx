@@ -264,10 +264,10 @@ function Categories() {
 
 function Advantages() {
   return (
-    <section id="advantages" className="py-16 border-t border-border/40">
+    <section id="advantages" className="py-10 border-t border-border/40">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="grid lg:grid-cols-3 gap-12 items-start">
-          <div className="lg:sticky lg:top-24">
+        <div className="grid lg:grid-cols-3 gap-8 items-start">
+          <div className="lg:sticky lg:top-16">
             <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-4">Преимущества</div>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl">Для каждого <em className="text-gold-gradient not-italic">партнёра</em></h2>
             <p className="mt-6 text-muted-foreground text-lg">Системный подход к поставкам, документообороту и сопровождению — без сюрпризов.</p>
