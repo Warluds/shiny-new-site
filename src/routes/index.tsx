@@ -102,11 +102,11 @@ function Header() {
   const [open, setOpen] = useState(false);
   return (
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-background/60 border-b border-border/40">
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 h-32 sm:h-40 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 h-auto py-0 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2" aria-label="Luxium">
           <img src={luxiumLogo.url} alt="Luxium — больше красок" width={440} height={176} className="h-24 sm:h-[136px] w-auto" />
         </a>
-        <nav className="hidden md:flex items-center gap-9 text-sm text-muted-foreground">
+        <nav className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
           <a href="#brand" className="hover:text-gold-soft transition">О бренде</a>
           <a href="#categories" className="hover:text-gold-soft transition">Продукция</a>
           <a href="#advantages" className="hover:text-gold-soft transition">Преимущества</a>
@@ -133,20 +133,20 @@ function Header() {
 
 function Hero() {
   return (
-    <section id="top" className="relative pt-44 pb-14 lg:pt-52 lg:pb-20 overflow-hidden">
+    <section id="top" className="relative pt-28 pb-10 lg:pt-36 lg:pb-14 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-10 items-center">
         <div className="lg:col-span-6 relative z-10">
-          <div className="inline-flex items-center gap-2 text-xs tracking-[0.25em] uppercase text-gold-soft mb-8">
+          <div className="inline-flex items-center gap-2 text-xs tracking-[0.25em] uppercase text-gold-soft mb-5">
             <Sparkles className="w-3.5 h-3.5" />
             Новый стандарт качества
           </div>
           <h1 className="font-display text-[2.1rem] sm:text-5xl md:text-6xl lg:text-7xl leading-[1.08]">
             Ваш надёжный <span className="text-gold-gradient italic">поставщик</span> лакокрасочных решений
           </h1>
-          <p className="mt-7 text-lg text-muted-foreground max-w-xl leading-relaxed">
+          <p className="mt-5 text-lg text-muted-foreground max-w-xl leading-relaxed">
             Luxium — обновлённый бренд, пришедший на смену Dulux. Профессиональные покрытия для проектов любого масштаба.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mt-6 flex flex-wrap gap-4">
             <a href="#contact" className="btn-gold btn-gold-hover">
               Рассчитать цену <ArrowRight className="w-4 h-4" />
             </a>
@@ -154,7 +154,7 @@ function Hero() {
               Смотреть продукцию
             </a>
           </div>
-          <div className="mt-10 grid grid-cols-3 gap-6 max-w-md">
+          <div className="mt-7 grid grid-cols-3 gap-6 max-w-md">
             {[["60+","SKU в линейке"],["10+","лет технологий"],["24/7","сопровождение"]].map(([n,t]) => (
               <div key={t}>
                 <div className="font-display text-3xl text-gold-gradient">{n}</div>
@@ -176,9 +176,9 @@ function Hero() {
 
 function Audiences() {
   return (
-    <section className="py-14 border-t border-border/40">
+    <section className="py-8 border-t border-border/40">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="flex items-end justify-between flex-wrap gap-6 mb-9">
+        <div className="flex items-end justify-between flex-wrap gap-6 mb-5">
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl max-w-2xl">Для тех, кто <em className="text-gold-gradient not-italic">делает качественно</em></h2>
           <div className="hairline w-32" />
         </div>
@@ -198,8 +198,8 @@ function Audiences() {
 
 function About() {
   return (
-    <section id="brand" className="py-16 lg:py-14 border-t border-border/40">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 items-center">
+    <section id="brand" className="py-10 lg:py-12 border-t border-border/40">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-8 items-center">
         <div className="relative">
           <div className="rounded-2xl overflow-hidden border border-border/60">
             <img src={brandImg} alt="О бренде Luxium" width={1200} height={900} loading="lazy" className="w-full h-auto" />
@@ -214,12 +214,12 @@ function About() {
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl leading-tight">
             Luxium — новый стандарт <span className="text-gold-gradient italic">качества</span> для профессиональных решений
           </h2>
-          <div className="hairline w-24 my-8" />
-          <div className="space-y-5 text-muted-foreground leading-relaxed">
+          <div className="hairline w-24 my-6" />
+          <div className="space-y-4 text-muted-foreground leading-relaxed">
             <p>Luxium — это обновлённый бренд, пришедший на смену Dulux. Мы сохранили все ключевые технологии и усилили фокус на локальные потребности рынка.</p>
             <p>Это профессиональная краска, созданная с учётом условий работы мастеров. Luxium — выбор тех, кто делает качественно с первого раза.</p>
           </div>
-          <ul className="mt-8 space-y-3">
+          <ul className="mt-6 space-y-3">
             {["Проверенные технологии Dulux","Адаптация под локальный климат","Полная сертификация ЕАЭС"].map(t => (
               <li key={t} className="flex items-center gap-3 text-sm">
                 <Check className="w-4 h-4 text-gold" /> {t}
@@ -234,9 +234,9 @@ function About() {
 
 function Categories() {
   return (
-    <section id="categories" className="py-16 border-t border-border/40">
+    <section id="categories" className="py-10 border-t border-border/40">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="text-center mb-10">
+        <div className="text-center mb-5">
           <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-4">Наша продукция</div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl">Четыре направления — <em className="text-gold-gradient not-italic">одно качество</em></h2>
         </div>
@@ -264,13 +264,13 @@ function Categories() {
 
 function Advantages() {
   return (
-    <section id="advantages" className="py-16 border-t border-border/40">
+    <section id="advantages" className="py-10 border-t border-border/40">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="grid lg:grid-cols-3 gap-12 items-start">
-          <div className="lg:sticky lg:top-24">
+        <div className="grid lg:grid-cols-3 gap-8 items-start">
+          <div className="lg:sticky lg:top-16">
             <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-4">Преимущества</div>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl">Для каждого <em className="text-gold-gradient not-italic">партнёра</em></h2>
-            <p className="mt-6 text-muted-foreground text-lg">Системный подход к поставкам, документообороту и сопровождению — без сюрпризов.</p>
+            <p className="mt-4 text-muted-foreground text-lg">Системный подход к поставкам, документообороту и сопровождению — без сюрпризов.</p>
           </div>
           <div className="lg:col-span-2 space-y-4">
             {advantages.map((a, i) => (
@@ -313,9 +313,9 @@ function ProductsCatalog() {
   }, [active]);
 
   return (
-    <section id="products" className="py-14 border-t border-border/40">
+    <section id="products" className="py-10 border-t border-border/40">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="flex flex-col gap-4 mb-8 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between">
+        <div className="flex flex-col gap-4 mb-4 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between">
           <div className="min-w-0">
             <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-3">Каталог</div>
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl">Линейка <em className="text-gold-gradient not-italic">Luxium</em></h2>
@@ -426,10 +426,10 @@ function Contact() {
     { icon: MapPin, label: "Адрес", value: "г. Алматы, ул. Рымжанова, 35", href: "https://maps.google.com/?q=Алматы+Рымжанова+35" },
   ];
   return (
-    <section id="contact" className="py-16 lg:py-14 border-t border-border/40 relative overflow-hidden">
+    <section id="contact" className="py-10 lg:py-12 border-t border-border/40 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gold/[0.03] to-transparent pointer-events-none" />
       <div className="max-w-7xl mx-auto px-6 lg:px-10 relative">
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-4">
           <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-4">Контакты</div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-6xl leading-tight">
             Свяжитесь с <em className="text-gold-gradient not-italic">выделенным менеджером</em>
@@ -439,7 +439,7 @@ function Contact() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-3 gap-4 lg:gap-6 mb-9">
+        <div className="grid sm:grid-cols-3 gap-4 lg:gap-6 mb-5">
           {contacts.map((c) => (
             <a
               key={c.label}
@@ -466,7 +466,7 @@ function Contact() {
           </a>
         </div>
 
-        <p className="text-center text-xs text-muted-foreground mt-12">
+        <p className="text-center text-xs text-muted-foreground mt-6">
           Пн–Пт 09:00–18:00 · Выделенный менеджер для каждого партнёра
         </p>
       </div>
@@ -503,7 +503,7 @@ function ScrollToTop() {
 
 function Footer() {
   return (
-    <footer className="border-t border-border/40 py-12">
+    <footer className="border-t border-border/40 py-8">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex flex-wrap items-center justify-between gap-6">
         <div className="flex items-center gap-4">
           <img src={luxiumLogo.url} alt="Luxium" width={440} height={176} className="h-24 sm:h-[136px] w-auto" />
