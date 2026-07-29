@@ -143,10 +143,10 @@ function Hero() {
           <h1 className="font-display text-[2.1rem] sm:text-5xl md:text-6xl lg:text-7xl leading-[1.08]">
             Ваш надёжный <span className="text-gold-gradient italic">поставщик</span> лакокрасочных решений
           </h1>
-          <p className="mt-7 text-lg text-muted-foreground max-w-xl leading-relaxed">
+          <p className="mt-5 text-lg text-muted-foreground max-w-xl leading-relaxed">
             Luxium — обновлённый бренд, пришедший на смену Dulux. Профессиональные покрытия для проектов любого масштаба.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mt-6 flex flex-wrap gap-4">
             <a href="#contact" className="btn-gold btn-gold-hover">
               Рассчитать цену <ArrowRight className="w-4 h-4" />
             </a>
