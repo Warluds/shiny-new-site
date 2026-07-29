@@ -198,8 +198,8 @@ function Audiences() {
 
 function About() {
   return (
-    <section id="brand" className="py-16 lg:py-14 border-t border-border/40">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 items-center">
+    <section id="brand" className="py-10 lg:py-12 border-t border-border/40">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-8 items-center">
         <div className="relative">
           <div className="rounded-2xl overflow-hidden border border-border/60">
             <img src={brandImg} alt="О бренде Luxium" width={1200} height={900} loading="lazy" className="w-full h-auto" />
