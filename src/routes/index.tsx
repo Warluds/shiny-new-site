@@ -234,9 +234,9 @@ function About() {
 
 function Categories() {
   return (
-    <section id="categories" className="py-16 border-t border-border/40">
+    <section id="categories" className="py-10 border-t border-border/40">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="text-center mb-10">
+        <div className="text-center mb-6">
           <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-4">Наша продукция</div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl">Четыре направления — <em className="text-gold-gradient not-italic">одно качество</em></h2>
         </div>
