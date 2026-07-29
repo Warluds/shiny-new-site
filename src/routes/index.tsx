@@ -429,7 +429,7 @@ function Contact() {
     <section id="contact" className="py-10 lg:py-12 border-t border-border/40 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gold/[0.03] to-transparent pointer-events-none" />
       <div className="max-w-7xl mx-auto px-6 lg:px-10 relative">
-        <div className="text-center max-w-3xl mx-auto mb-6">
+        <div className="text-center max-w-3xl mx-auto mb-4">
           <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-4">Контакты</div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-6xl leading-tight">
             Свяжитесь с <em className="text-gold-gradient not-italic">выделенным менеджером</em>
