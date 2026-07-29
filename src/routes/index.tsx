@@ -136,7 +136,7 @@ function Hero() {
     <section id="top" className="relative pt-28 pb-10 lg:pt-36 lg:pb-14 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-10 items-center">
         <div className="lg:col-span-6 relative z-10">
-          <div className="inline-flex items-center gap-2 text-xs tracking-[0.25em] uppercase text-gold-soft mb-8">
+          <div className="inline-flex items-center gap-2 text-xs tracking-[0.25em] uppercase text-gold-soft mb-5">
             <Sparkles className="w-3.5 h-3.5" />
             Новый стандарт качества
           </div>
