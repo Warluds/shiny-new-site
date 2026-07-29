@@ -315,7 +315,7 @@ function ProductsCatalog() {
   return (
     <section id="products" className="py-10 border-t border-border/40">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="flex flex-col gap-4 mb-5 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between">
+        <div className="flex flex-col gap-4 mb-4 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between">
           <div className="min-w-0">
             <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-3">Каталог</div>
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl">Линейка <em className="text-gold-gradient not-italic">Luxium</em></h2>
