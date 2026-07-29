@@ -270,7 +270,7 @@ function Advantages() {
           <div className="lg:sticky lg:top-16">
             <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-4">Преимущества</div>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl">Для каждого <em className="text-gold-gradient not-italic">партнёра</em></h2>
-            <p className="mt-6 text-muted-foreground text-lg">Системный подход к поставкам, документообороту и сопровождению — без сюрпризов.</p>
+            <p className="mt-4 text-muted-foreground text-lg">Системный подход к поставкам, документообороту и сопровождению — без сюрпризов.</p>
           </div>
           <div className="lg:col-span-2 space-y-4">
             {advantages.map((a, i) => (
