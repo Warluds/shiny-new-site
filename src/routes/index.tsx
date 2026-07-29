@@ -246,7 +246,7 @@ function Categories() {
               <div className="aspect-[3/4] overflow-hidden">
                 <img src={c.img} alt={c.title} width={900} height={1100} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/75 to-ink/10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/5" />
               <div className="absolute bottom-0 inset-x-0 p-6">
                 <h3 className="font-display text-2xl text-primary-foreground mb-1">{c.title}</h3>
                 <p className="text-sm text-primary-foreground/80 mb-3">{c.desc}</p>
@@ -315,7 +315,7 @@ function ProductsCatalog() {
   return (
     <section id="products" className="py-14 border-t border-border/40">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-6 mb-8 sm:flex sm:flex-wrap sm:justify-between">
+        <div className="flex flex-col gap-4 mb-8 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between">
           <div className="min-w-0">
             <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-3">Каталог</div>
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl">Линейка <em className="text-gold-gradient not-italic">Luxium</em></h2>
