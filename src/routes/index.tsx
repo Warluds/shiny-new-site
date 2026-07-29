@@ -503,7 +503,7 @@ function ScrollToTop() {
 
 function Footer() {
   return (
-    <footer className="border-t border-border/40 py-12">
+    <footer className="border-t border-border/40 py-8">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex flex-wrap items-center justify-between gap-6">
         <div className="flex items-center gap-4">
           <img src={luxiumLogo.url} alt="Luxium" width={440} height={176} className="h-24 sm:h-[136px] w-auto" />
