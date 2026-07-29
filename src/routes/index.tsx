@@ -176,7 +176,7 @@ function Hero() {
 
 function Audiences() {
   return (
-    <section className="py-14 border-t border-border/40">
+    <section className="py-8 border-t border-border/40">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="flex items-end justify-between flex-wrap gap-6 mb-9">
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl max-w-2xl">Для тех, кто <em className="text-gold-gradient not-italic">делает качественно</em></h2>
