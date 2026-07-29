@@ -7,7 +7,7 @@ import catInterior from "@/assets/cat-interior.jpg";
 import catFacade from "@/assets/cat-facade.jpg";
 import catWood from "@/assets/cat-wood.jpg";
 import catPrep from "@/assets/cat-prep.jpg";
-import luxiumLogo from "@/assets/luxium-logo.png.asset.json";
+import luxiumLogo from "@/assets/luxium-dulux-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -102,9 +102,9 @@ function Header() {
   const [open, setOpen] = useState(false);
   return (
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-background/60 border-b border-border/40">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 h-24 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2" aria-label="Luxium">
-          <img src={luxiumLogo.url} alt="Luxium — больше красок" width={130} height={52} className="h-[52px] w-auto" />
+          <img src={luxiumLogo.url} alt="Luxium — больше красок" width={220} height={88} className="h-[72px] w-auto" />
         </a>
         <nav className="hidden md:flex items-center gap-9 text-sm text-muted-foreground">
           <a href="#brand" className="hover:text-gold-soft transition">О бренде</a>
@@ -133,8 +133,8 @@ function Header() {
 
 function Hero() {
   return (
-    <section id="top" className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-12 items-center">
+    <section id="top" className="relative pt-32 pb-14 lg:pt-36 lg:pb-20 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-10 items-center">
         <div className="lg:col-span-6 relative z-10">
           <div className="inline-flex items-center gap-2 text-xs tracking-[0.25em] uppercase text-gold-soft mb-8">
             <Sparkles className="w-3.5 h-3.5" />
@@ -146,7 +146,7 @@ function Hero() {
           <p className="mt-7 text-lg text-muted-foreground max-w-xl leading-relaxed">
             Luxium — обновлённый бренд, пришедший на смену Dulux. Профессиональные покрытия для проектов любого масштаба.
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-8 flex flex-wrap gap-4">
             <a href="#contact" className="btn-gold btn-gold-hover">
               Рассчитать цену <ArrowRight className="w-4 h-4" />
             </a>
@@ -154,7 +154,7 @@ function Hero() {
               Смотреть продукцию
             </a>
           </div>
-          <div className="mt-14 grid grid-cols-3 gap-6 max-w-md">
+          <div className="mt-10 grid grid-cols-3 gap-6 max-w-md">
             {[["60+","SKU в линейке"],["10+","лет технологий"],["24/7","сопровождение"]].map(([n,t]) => (
               <div key={t}>
                 <div className="font-display text-3xl text-gold-gradient">{n}</div>
@@ -176,9 +176,9 @@ function Hero() {
 
 function Audiences() {
   return (
-    <section className="py-20 border-t border-border/40">
+    <section className="py-14 border-t border-border/40">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="flex items-end justify-between flex-wrap gap-6 mb-12">
+        <div className="flex items-end justify-between flex-wrap gap-6 mb-9">
           <h2 className="font-display text-4xl md:text-5xl max-w-2xl">Для тех, кто <em className="text-gold-gradient not-italic">делает качественно</em></h2>
           <div className="hairline w-32" />
         </div>
@@ -198,8 +198,8 @@ function Audiences() {
 
 function About() {
   return (
-    <section id="brand" className="py-24 lg:py-32 border-t border-border/40">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-16 items-center">
+    <section id="brand" className="py-16 lg:py-14 border-t border-border/40">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 items-center">
         <div className="relative">
           <div className="rounded-2xl overflow-hidden border border-border/60">
             <img src={brandImg} alt="О бренде Luxium" width={1200} height={900} loading="lazy" className="w-full h-auto" />
@@ -234,9 +234,9 @@ function About() {
 
 function Categories() {
   return (
-    <section id="categories" className="py-24 border-t border-border/40">
+    <section id="categories" className="py-16 border-t border-border/40">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-4">Наша продукция</div>
           <h2 className="font-display text-4xl md:text-5xl">Четыре направления — <em className="text-gold-gradient not-italic">одно качество</em></h2>
         </div>
@@ -246,11 +246,11 @@ function Categories() {
               <div className="aspect-[3/4] overflow-hidden">
                 <img src={c.img} alt={c.title} width={900} height={1100} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/75 to-ink/10" />
               <div className="absolute bottom-0 inset-x-0 p-6">
-                <h3 className="font-display text-2xl text-foreground mb-1">{c.title}</h3>
-                <p className="text-sm text-muted-foreground mb-3">{c.desc}</p>
-                <span className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-gold-soft">
+                <h3 className="font-display text-2xl text-primary-foreground mb-1">{c.title}</h3>
+                <p className="text-sm text-primary-foreground/80 mb-3">{c.desc}</p>
+                <span className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-primary-foreground">
                   Подробнее <ArrowRight className="w-3 h-3" />
                 </span>
               </div>
@@ -264,7 +264,7 @@ function Categories() {
 
 function Advantages() {
   return (
-    <section id="advantages" className="py-24 border-t border-border/40">
+    <section id="advantages" className="py-16 border-t border-border/40">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="grid lg:grid-cols-3 gap-12 items-start">
           <div className="lg:sticky lg:top-24">
@@ -313,7 +313,7 @@ function ProductsCatalog() {
   }, [active]);
 
   return (
-    <section id="products" className="py-20 border-t border-border/40">
+    <section id="products" className="py-14 border-t border-border/40">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-6 mb-8 sm:flex sm:flex-wrap sm:justify-between">
           <div className="min-w-0">
@@ -426,10 +426,10 @@ function Contact() {
     { icon: MapPin, label: "Адрес", value: "г. Алматы, ул. Рымжанова, 35", href: "https://maps.google.com/?q=Алматы+Рымжанова+35" },
   ];
   return (
-    <section id="contact" className="py-24 lg:py-32 border-t border-border/40 relative overflow-hidden">
+    <section id="contact" className="py-16 lg:py-14 border-t border-border/40 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gold/[0.03] to-transparent pointer-events-none" />
       <div className="max-w-7xl mx-auto px-6 lg:px-10 relative">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-4">Контакты</div>
           <h2 className="font-display text-4xl md:text-6xl leading-tight">
             Свяжитесь с <em className="text-gold-gradient not-italic">выделенным менеджером</em>
@@ -439,7 +439,7 @@ function Contact() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-3 gap-4 lg:gap-6 mb-12">
+        <div className="grid sm:grid-cols-3 gap-4 lg:gap-6 mb-9">
           {contacts.map((c) => (
             <a
               key={c.label}
@@ -506,7 +506,7 @@ function Footer() {
     <footer className="border-t border-border/40 py-12">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex flex-wrap items-center justify-between gap-6">
         <div className="flex items-center gap-4">
-          <img src={luxiumLogo.url} alt="Luxium" width={130} height={52} className="h-[52px] w-auto" />
+          <img src={luxiumLogo.url} alt="Luxium" width={220} height={88} className="h-[72px] w-auto" />
           <p className="text-xs text-muted-foreground max-w-[18ch]">Профессиональные покрытия для профессионалов.</p>
         </div>
         <div className="text-xs text-muted-foreground">© {new Date().getFullYear()} Luxium. Все права защищены.</div>
