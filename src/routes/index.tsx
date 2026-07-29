@@ -106,7 +106,7 @@ function Header() {
         <a href="#top" className="flex items-center gap-2" aria-label="Luxium">
           <img src={luxiumLogo.url} alt="Luxium — больше красок" width={440} height={176} className="h-24 sm:h-[136px] w-auto" />
         </a>
-        <nav className="hidden md:flex items-center gap-9 text-sm text-muted-foreground">
+        <nav className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
           <a href="#brand" className="hover:text-gold-soft transition">О бренде</a>
           <a href="#categories" className="hover:text-gold-soft transition">Продукция</a>
           <a href="#advantages" className="hover:text-gold-soft transition">Преимущества</a>
