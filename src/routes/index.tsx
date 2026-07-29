@@ -214,12 +214,12 @@ function About() {
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl leading-tight">
             Luxium — новый стандарт <span className="text-gold-gradient italic">качества</span> для профессиональных решений
           </h2>
-          <div className="hairline w-24 my-8" />
-          <div className="space-y-5 text-muted-foreground leading-relaxed">
+          <div className="hairline w-24 my-6" />
+          <div className="space-y-4 text-muted-foreground leading-relaxed">
             <p>Luxium — это обновлённый бренд, пришедший на смену Dulux. Мы сохранили все ключевые технологии и усилили фокус на локальные потребности рынка.</p>
             <p>Это профессиональная краска, созданная с учётом условий работы мастеров. Luxium — выбор тех, кто делает качественно с первого раза.</p>
           </div>
-          <ul className="mt-8 space-y-3">
+          <ul className="mt-6 space-y-3">
             {["Проверенные технологии Dulux","Адаптация под локальный климат","Полная сертификация ЕАЭС"].map(t => (
               <li key={t} className="flex items-center gap-3 text-sm">
                 <Check className="w-4 h-4 text-gold" /> {t}
