@@ -102,9 +102,9 @@ function Header() {
   const [open, setOpen] = useState(false);
   return (
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-background/60 border-b border-border/40">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 h-24 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 h-20 sm:h-24 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2" aria-label="Luxium">
-          <img src={luxiumLogo.url} alt="Luxium — больше красок" width={220} height={88} className="h-[72px] w-auto" />
+          <img src={luxiumLogo.url} alt="Luxium — больше красок" width={220} height={88} className="h-12 sm:h-[68px] w-auto" />
         </a>
         <nav className="hidden md:flex items-center gap-9 text-sm text-muted-foreground">
           <a href="#brand" className="hover:text-gold-soft transition">О бренде</a>
@@ -140,7 +140,7 @@ function Hero() {
             <Sparkles className="w-3.5 h-3.5" />
             Новый стандарт качества
           </div>
-          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.05]">
+          <h1 className="font-display text-[2.1rem] sm:text-5xl md:text-6xl lg:text-7xl leading-[1.08]">
             Ваш надёжный <span className="text-gold-gradient italic">поставщик</span> лакокрасочных решений
           </h1>
           <p className="mt-7 text-lg text-muted-foreground max-w-xl leading-relaxed">
@@ -179,7 +179,7 @@ function Audiences() {
     <section className="py-14 border-t border-border/40">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="flex items-end justify-between flex-wrap gap-6 mb-9">
-          <h2 className="font-display text-4xl md:text-5xl max-w-2xl">Для тех, кто <em className="text-gold-gradient not-italic">делает качественно</em></h2>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl max-w-2xl">Для тех, кто <em className="text-gold-gradient not-italic">делает качественно</em></h2>
           <div className="hairline w-32" />
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -187,7 +187,7 @@ function Audiences() {
             <div key={a.title} className="group relative p-7 rounded-xl bg-card/40 border border-border/50 hover:border-gold/60 transition-all hover:-translate-y-1">
               <div className="text-xs text-gold-soft mb-4 font-mono">0{i+1}</div>
               <h3 className="font-display text-2xl mb-3">{a.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{a.desc}</p>
+              <p className="text-[0.95rem] text-muted-foreground leading-relaxed">{a.desc}</p>
             </div>
           ))}
         </div>
@@ -211,7 +211,7 @@ function About() {
         </div>
         <div>
           <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-6">О бренде</div>
-          <h2 className="font-display text-4xl md:text-5xl leading-tight">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl leading-tight">
             Luxium — новый стандарт <span className="text-gold-gradient italic">качества</span> для профессиональных решений
           </h2>
           <div className="hairline w-24 my-8" />
@@ -238,7 +238,7 @@ function Categories() {
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="text-center mb-10">
           <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-4">Наша продукция</div>
-          <h2 className="font-display text-4xl md:text-5xl">Четыре направления — <em className="text-gold-gradient not-italic">одно качество</em></h2>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl">Четыре направления — <em className="text-gold-gradient not-italic">одно качество</em></h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {categories.map(c => (
@@ -246,7 +246,7 @@ function Categories() {
               <div className="aspect-[3/4] overflow-hidden">
                 <img src={c.img} alt={c.title} width={900} height={1100} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/75 to-ink/10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/5" />
               <div className="absolute bottom-0 inset-x-0 p-6">
                 <h3 className="font-display text-2xl text-primary-foreground mb-1">{c.title}</h3>
                 <p className="text-sm text-primary-foreground/80 mb-3">{c.desc}</p>
@@ -269,19 +269,19 @@ function Advantages() {
         <div className="grid lg:grid-cols-3 gap-12 items-start">
           <div className="lg:sticky lg:top-24">
             <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-4">Преимущества</div>
-            <h2 className="font-display text-4xl md:text-5xl">Для каждого <em className="text-gold-gradient not-italic">партнёра</em></h2>
-            <p className="mt-6 text-muted-foreground">Системный подход к поставкам, документообороту и сопровождению — без сюрпризов.</p>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl">Для каждого <em className="text-gold-gradient not-italic">партнёра</em></h2>
+            <p className="mt-6 text-muted-foreground text-lg">Системный подход к поставкам, документообороту и сопровождению — без сюрпризов.</p>
           </div>
           <div className="lg:col-span-2 space-y-4">
             {advantages.map((a, i) => (
-              <div key={a.title} className="flex gap-6 p-7 rounded-xl bg-card/30 border border-border/40 hover:border-gold/50 transition">
+              <div key={a.title} className="flex gap-4 sm:gap-6 p-5 sm:p-7 rounded-xl bg-card/30 border border-border/40 hover:border-gold/50 transition">
                 <div className="shrink-0 w-14 h-14 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center">
                   <a.icon className="w-6 h-6 text-gold" />
                 </div>
                 <div>
                   <div className="text-xs text-gold-soft mb-1 font-mono">0{i+1}</div>
                   <h3 className="font-display text-2xl mb-2">{a.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{a.desc}</p>
+                  <p className="text-[0.95rem] text-muted-foreground leading-relaxed">{a.desc}</p>
                 </div>
               </div>
             ))}
@@ -315,11 +315,11 @@ function ProductsCatalog() {
   return (
     <section id="products" className="py-14 border-t border-border/40">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-6 mb-8 sm:flex sm:flex-wrap sm:justify-between">
+        <div className="flex flex-col gap-4 mb-8 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between">
           <div className="min-w-0">
             <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-3">Каталог</div>
-            <h2 className="font-display text-3xl md:text-4xl">Линейка <em className="text-gold-gradient not-italic">Luxium</em></h2>
-            <p className="mt-2 text-sm text-muted-foreground">{products.length} продуктов · нажмите карточку для описания</p>
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl">Линейка <em className="text-gold-gradient not-italic">Luxium</em></h2>
+            <p className="mt-2 text-sm sm:text-base text-muted-foreground">{products.length} продуктов · нажмите карточку для описания</p>
           </div>
           <input
             value={query}
@@ -357,7 +357,7 @@ function ProductsCatalog() {
               </div>
               <div className="p-2.5 bg-card border-t border-border/30">
                 {p.tag && <div className="text-[9px] tracking-widest uppercase text-gold-soft/80 mb-1">{p.tag}</div>}
-                <div className="text-xs leading-snug line-clamp-2 group-hover:text-gold-soft transition">{p.name}</div>
+                <div className="text-[0.8rem] leading-snug line-clamp-2 group-hover:text-gold-soft transition">{p.name}</div>
               </div>
             </button>
           ))}
@@ -399,10 +399,10 @@ function ProductModal({ product, onClose }: { product: Product; onClose: () => v
             {product.tag && <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-3">{product.tag}</div>}
             <h3 className="font-display text-2xl lg:text-3xl leading-tight mb-2">{product.name}</h3>
             <div className="hairline w-16 my-5" />
-            <p className="text-sm text-muted-foreground mb-5">Профессиональное покрытие линейки Luxium. Сертифицировано для применения на территории ЕАЭС.</p>
+            <p className="text-base text-muted-foreground mb-5">Профессиональное покрытие линейки Luxium. Сертифицировано для применения на территории ЕАЭС.</p>
             <ul className="space-y-3 mb-7">
               {product.features.map((f) => (
-                <li key={f} className="flex gap-3 text-sm leading-relaxed">
+                <li key={f} className="flex gap-3 text-[0.95rem] leading-relaxed">
                   <Check className="w-4 h-4 text-gold shrink-0 mt-0.5" />
                   <span>{f}</span>
                 </li>
@@ -431,7 +431,7 @@ function Contact() {
       <div className="max-w-7xl mx-auto px-6 lg:px-10 relative">
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-4">Контакты</div>
-          <h2 className="font-display text-4xl md:text-6xl leading-tight">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-6xl leading-tight">
             Свяжитесь с <em className="text-gold-gradient not-italic">выделенным менеджером</em>
           </h2>
           <p className="mt-6 text-muted-foreground text-lg">
@@ -446,13 +446,13 @@ function Contact() {
               href={c.href}
               target={c.label === "Адрес" ? "_blank" : undefined}
               rel={c.label === "Адрес" ? "noreferrer" : undefined}
-              className="group relative p-8 lg:p-10 rounded-2xl bg-card/40 border border-border/50 hover:border-gold/60 hover:bg-card/70 transition-all hover:-translate-y-1"
+              className="group relative p-6 sm:p-8 lg:p-10 rounded-2xl bg-card/40 border border-border/50 hover:border-gold/60 hover:bg-card/70 transition-all hover:-translate-y-1"
             >
               <div className="w-14 h-14 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center mb-6 group-hover:bg-gold/20 transition">
                 <c.icon className="w-5 h-5 text-gold" />
               </div>
               <div className="text-xs tracking-widest uppercase text-gold-soft mb-2">{c.label}</div>
-              <div className="font-display text-2xl lg:text-3xl leading-tight">{c.value}</div>
+              <div className="font-display text-xl sm:text-2xl lg:text-3xl leading-tight break-words">{c.value}</div>
             </a>
           ))}
         </div>
@@ -506,10 +506,10 @@ function Footer() {
     <footer className="border-t border-border/40 py-12">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex flex-wrap items-center justify-between gap-6">
         <div className="flex items-center gap-4">
-          <img src={luxiumLogo.url} alt="Luxium" width={220} height={88} className="h-[72px] w-auto" />
-          <p className="text-xs text-muted-foreground max-w-[18ch]">Профессиональные покрытия для профессионалов.</p>
+          <img src={luxiumLogo.url} alt="Luxium" width={220} height={88} className="h-12 sm:h-[68px] w-auto" />
+          <p className="text-sm text-muted-foreground max-w-[20ch]">Профессиональные покрытия для профессионалов.</p>
         </div>
-        <div className="text-xs text-muted-foreground">© {new Date().getFullYear()} Luxium. Все права защищены.</div>
+        <div className="text-sm text-muted-foreground">© {new Date().getFullYear()} Luxium. Все права защищены.</div>
       </div>
     </footer>
   );
