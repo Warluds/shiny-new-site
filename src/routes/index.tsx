@@ -466,7 +466,7 @@ function Contact() {
           </a>
         </div>
 
-        <p className="text-center text-xs text-muted-foreground mt-12">
+        <p className="text-center text-xs text-muted-foreground mt-8">
           Пн–Пт 09:00–18:00 · Выделенный менеджер для каждого партнёра
         </p>
       </div>
