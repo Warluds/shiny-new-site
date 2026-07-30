@@ -319,7 +319,7 @@ function ProductsCatalog() {
           <div className="min-w-0">
             <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-3">Каталог</div>
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl">Линейка <em className="text-gold-gradient not-italic">Luxium</em></h2>
-            <p className="mt-2 text-sm sm:text-base text-muted-foreground">{products.length} продуктов · нажмите карточку для описания</p>
+            <p className="mt-2 text-sm sm:text-base text-muted-foreground">из {products.length} продуктов · нажмите на карточку для описания</p>
           </div>
           <input
             value={query}
