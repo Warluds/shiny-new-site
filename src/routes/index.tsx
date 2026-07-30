@@ -234,7 +234,7 @@ function About() {
                   <p>Это профессиональная краска, созданная с учётом условий работы мастеров. Luxium — выбор тех, кто делает качественно с первого раза.</p>
                 </div>
                 <ul className="mt-8 grid sm:grid-cols-2 gap-3">
-                  {["Проверенные технологии Dulux","Адаптация под локальный климат","Полная сертификация ЕАЭС","Поддержка 24/7"].map(t => (
+                  {["Проверенные технологии Dulux","Адаптация под локальный климат","Полная сертификация ЕАЭС","Системный подход к поставкам"].map(t => (
                     <li key={t} className="flex items-center gap-3 text-sm text-white/90">
                       <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-white/10 shrink-0">
                         <Check className="w-3 h-3 text-white" />
