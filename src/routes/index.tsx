@@ -431,13 +431,8 @@ function Contact() {
       <div className="max-w-7xl mx-auto px-6 lg:px-10 relative">
         <div className="text-center max-w-3xl mx-auto mb-4">
           <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-4">Контакты</div>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-6xl leading-tight">
-            Свяжитесь с <em className="text-gold-gradient not-italic">выделенным менеджером</em>
-          </h2>
-          <p className="mt-6 text-muted-foreground text-lg">
-            Подготовим коммерческое предложение под ваш проект в течение рабочего дня.
-          </p>
         </div>
+
 
         <div className="grid sm:grid-cols-3 gap-4 lg:gap-6 mb-5">
           {contacts.map((c) => (
