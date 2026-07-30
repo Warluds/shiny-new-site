@@ -154,7 +154,7 @@ function Hero() {
               Смотреть продукцию
             </a>
           </div>
-          <div className="mt-7 grid grid-cols-3 gap-6 max-w-md">
+          <div className="mt-7 grid grid-cols-2 gap-6 max-w-xs">
             {[["60+","SKU в линейке"],["10+","лет технологий"]].map(([n,t]) => (
               <div key={t}>
                 <div className="font-display text-3xl text-gold-gradient">{n}</div>
