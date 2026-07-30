@@ -288,7 +288,7 @@ function Advantages() {
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="grid lg:grid-cols-3 gap-8 items-start">
           <div className="lg:sticky lg:top-16">
-            <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-4 whitespace-pre">{"\n\n\n\n\n\n\n\n\n\n\u00a0"}ПРЕИМУЩЕСТВА</div>
+            <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-4 whitespace-pre">{"\n\n\n\n\n\n\u00a0"}ПРЕИМУЩЕСТВА</div>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl">Для каждого <em className="text-gold-gradient not-italic">партнёра</em></h2>
             <p className="mt-4 text-muted-foreground text-lg">Системный подход к поставкам, документообороту и сопровождению — без сюрпризов.</p>
           </div>
