@@ -104,7 +104,7 @@ function Header() {
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-background/60 border-b border-border/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 h-auto py-0 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2" aria-label="Luxium">
-          <img src={luxiumLogo.url} alt="Luxium — больше красок" width={440} height={176} className="h-24 sm:h-[136px] w-auto" />
+          <img src={luxiumLogo.url} alt="Luxium — больше красок" width={440} height={176} className="h-[7.5rem] sm:h-[176px] w-auto -my-3 sm:-my-5" />
         </a>
         <nav className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
           <a href="#brand" className="hover:text-gold-soft transition">О бренде</a>
@@ -154,8 +154,8 @@ function Hero() {
               Смотреть продукцию
             </a>
           </div>
-          <div className="mt-7 grid grid-cols-3 gap-6 max-w-md">
-            {[["60+","SKU в линейке"],["10+","лет технологий"],["24/7","сопровождение"]].map(([n,t]) => (
+          <div className="mt-7 grid grid-cols-2 gap-6 max-w-xs">
+            {[["60+","SKU в линейке"],["10+","лет технологий"]].map(([n,t]) => (
               <div key={t}>
                 <div className="font-display text-3xl text-gold-gradient">{n}</div>
                 <div className="text-xs text-muted-foreground mt-1 leading-tight">{t}</div>
@@ -431,13 +431,8 @@ function Contact() {
       <div className="max-w-7xl mx-auto px-6 lg:px-10 relative">
         <div className="text-center max-w-3xl mx-auto mb-4">
           <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-4">Контакты</div>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-6xl leading-tight">
-            Свяжитесь с <em className="text-gold-gradient not-italic">выделенным менеджером</em>
-          </h2>
-          <p className="mt-6 text-muted-foreground text-lg">
-            Подготовим коммерческое предложение под ваш проект в течение рабочего дня.
-          </p>
         </div>
+
 
         <div className="grid sm:grid-cols-3 gap-4 lg:gap-6 mb-5">
           {contacts.map((c) => (
