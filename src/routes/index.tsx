@@ -198,38 +198,54 @@ function Audiences() {
 
 function About() {
   return (
-    <section id="brand" className="py-10 lg:py-12 border-t border-border/40">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-8 items-center">
-        <div className="relative">
-          <div className="rounded-2xl overflow-hidden border border-border/60 bg-white grid grid-cols-2 gap-px">
-            {[products[0], products[3], products[20], products[29]].map((p) => (
-              <div key={p.name} className="bg-white aspect-square flex items-center justify-center p-4">
-                <img src={p.img} alt={p.name} width={600} height={600} loading="lazy" className="w-full h-full object-contain" />
+    <section id="brand" className="relative border-t border-border/40">
+      <div className="relative min-h-[520px] lg:min-h-[620px] overflow-hidden">
+        <img
+          src={renovationImg}
+          alt="Профессиональная покраска интерьера"
+          width={1344}
+          height={896}
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-background/30 to-brand-navy/90" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 min-h-[520px] lg:min-h-[620px] flex items-center">
+          <div className="grid lg:grid-cols-12 gap-8 w-full items-center">
+            <div className="lg:col-span-5 hidden lg:block">
+              <div className="bg-white/90 backdrop-blur-sm border border-white/50 rounded-2xl p-8 shadow-2xl max-w-sm">
+                <div className="text-xs tracking-[0.25em] uppercase text-brand-navy/70 mb-2">Преемственность</div>
+                <div className="font-display text-4xl text-brand-navy">Dulux → Luxium</div>
+                <div className="hairline w-16 my-5" />
+                <p className="text-sm text-muted-foreground">Сохранили технологии. Усилили фокус на локальных условиях.</p>
               </div>
-            ))}
+            </div>
+
+            <div className="lg:col-span-7 lg:col-start-6">
+              <div className="bg-brand-navy/95 backdrop-blur-md rounded-2xl p-8 sm:p-10 lg:p-12 text-primary-foreground shadow-2xl border border-white/10">
+                <div className="text-xs tracking-[0.25em] uppercase text-white/60 mb-4">О бренде</div>
+                <h2 className="font-display text-3xl sm:text-4xl md:text-5xl leading-[1.1] text-white mb-6">
+                  Luxium — новый стандарт качества для профессиональных решений
+                </h2>
+                <div className="w-20 h-px bg-gradient-to-r from-white/40 via-white/80 to-white/40 mb-6" />
+                <div className="space-y-4 text-white/85 text-base sm:text-lg leading-relaxed">
+                  <p>Luxium — это обновлённый бренд, пришедший на смену Dulux. Мы сохранили все ключевые технологии и усилили фокус на локальные потребности рынка.</p>
+                  <p>Это профессиональная краска, созданная с учётом условий работы мастеров. Luxium — выбор тех, кто делает качественно с первого раза.</p>
+                </div>
+                <ul className="mt-8 grid sm:grid-cols-2 gap-3">
+                  {["Проверенные технологии Dulux","Адаптация под локальный климат","Полная сертификация ЕАЭС","Поддержка 24/7"].map(t => (
+                    <li key={t} className="flex items-center gap-3 text-sm text-white/90">
+                      <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-white/10 shrink-0">
+                        <Check className="w-3 h-3 text-white" />
+                      </span>
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
-          <div className="absolute -bottom-6 -right-6 hidden md:block bg-background border border-gold/40 rounded-xl p-6 max-w-xs">
-            <div className="text-gold-soft text-xs tracking-widest uppercase mb-2">Преемственность</div>
-            <div className="font-display text-2xl">Dulux → Luxium</div>
-          </div>
-        </div>
-        <div>
-          <div className="text-xs tracking-[0.25em] uppercase text-gold-soft mb-6">О бренде</div>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl leading-tight">
-            Luxium — новый стандарт <span className="text-gold-gradient italic">качества</span> для профессиональных решений
-          </h2>
-          <div className="hairline w-24 my-6" />
-          <div className="space-y-4 text-muted-foreground leading-relaxed">
-            <p>Luxium — это обновлённый бренд, пришедший на смену Dulux. Мы сохранили все ключевые технологии и усилили фокус на локальные потребности рынка.</p>
-            <p>Это профессиональная краска, созданная с учётом условий работы мастеров. Luxium — выбор тех, кто делает качественно с первого раза.</p>
-          </div>
-          <ul className="mt-6 space-y-3">
-            {["Проверенные технологии Dulux","Адаптация под локальный климат","Полная сертификация ЕАЭС"].map(t => (
-              <li key={t} className="flex items-center gap-3 text-sm">
-                <Check className="w-4 h-4 text-gold" /> {t}
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </section>
