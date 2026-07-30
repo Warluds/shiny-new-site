@@ -201,8 +201,12 @@ function About() {
     <section id="brand" className="py-10 lg:py-12 border-t border-border/40">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-8 items-center">
         <div className="relative">
-          <div className="rounded-2xl overflow-hidden border border-border/60">
-            <img src={brandImg} alt="О бренде Luxium" width={1200} height={900} loading="lazy" className="w-full h-auto" />
+          <div className="rounded-2xl overflow-hidden border border-border/60 bg-white grid grid-cols-2 gap-px">
+            {[products[0], products[3], products[20], products[29]].map((p) => (
+              <div key={p.name} className="bg-white aspect-square flex items-center justify-center p-4">
+                <img src={p.img} alt={p.name} width={600} height={600} loading="lazy" className="w-full h-full object-contain" />
+              </div>
+            ))}
           </div>
           <div className="absolute -bottom-6 -right-6 hidden md:block bg-background border border-gold/40 rounded-xl p-6 max-w-xs">
             <div className="text-gold-soft text-xs tracking-widest uppercase mb-2">Преемственность</div>
