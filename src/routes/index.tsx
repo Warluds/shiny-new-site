@@ -209,21 +209,21 @@ function About() {
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-background/30 to-brand-navy/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-background/30 to-ink/90" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 min-h-[520px] lg:min-h-[620px] flex items-center">
           <div className="grid lg:grid-cols-12 gap-8 w-full items-center">
             <div className="lg:col-span-5 hidden lg:block">
               <div className="bg-white/90 backdrop-blur-sm border border-white/50 rounded-2xl p-8 shadow-2xl max-w-sm">
-                <div className="text-xs tracking-[0.25em] uppercase text-brand-navy/70 mb-2">Преемственность</div>
-                <div className="font-display text-4xl text-brand-navy">Dulux → Luxium</div>
+                <div className="text-xs tracking-[0.25em] uppercase text-ink/70 mb-2">Преемственность</div>
+                <div className="font-display text-4xl text-ink">Dulux → Luxium</div>
                 <div className="hairline w-16 my-5" />
                 <p className="text-sm text-muted-foreground">Сохранили технологии. Усилили фокус на локальных условиях.</p>
               </div>
             </div>
 
             <div className="lg:col-span-7 lg:col-start-6">
-              <div className="bg-brand-navy/95 backdrop-blur-md rounded-2xl p-8 sm:p-10 lg:p-12 text-primary-foreground shadow-2xl border border-white/10">
+              <div className="bg-ink/95 backdrop-blur-md rounded-2xl p-8 sm:p-10 lg:p-12 text-primary-foreground shadow-2xl border border-white/10">
                 <div className="text-xs tracking-[0.25em] uppercase text-white/60 mb-4">О бренде</div>
                 <h2 className="font-display text-3xl sm:text-4xl md:text-5xl leading-[1.1] text-white mb-6">
                   Luxium — новый стандарт качества для профессиональных решений
