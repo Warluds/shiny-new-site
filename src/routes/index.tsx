@@ -155,7 +155,7 @@ function Hero() {
             </a>
           </div>
           <div className="mt-7 grid grid-cols-2 gap-6 max-w-xs">
-            {[["60+","SKU в линейке"],["10+","лет технологий"]].map(([n,t]) => (
+            {[["\u00a0 \u00a0 \u00a0 60+","\u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0SKU в линейке"],["\u00a0 \u00a0 \u00a0 10+","\u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 лет технологий"]].map(([n,t]) => (
               <div key={t}>
                 <div className="font-display text-3xl text-gold-gradient">{n}</div>
                 <div className="text-xs text-muted-foreground mt-1 leading-tight">{t}</div>
